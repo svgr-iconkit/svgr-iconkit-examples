@@ -405,8 +405,8 @@ export default function Home() {
                 <Slider
                   isDisabled={!isUsingStroke}
                   minValue={0.1}
-                  maxValue={5}
-                  step={0.1}
+                  maxValue={3}
+                  step={0.01}
                   defaultValue={iconStroke}
                   onChangeEnd={setIconStroke}
                 >

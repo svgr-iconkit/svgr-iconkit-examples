@@ -6,3 +6,4 @@ tmp/
 logs/
 .expo
 build/
+examples/.DS_Store

@@ -15,6 +15,8 @@ import IconsetListView from "./components/IconListView";
 import IconsetInfoPanel from "./components/IconsetPanel";
 import Picker from "./components/Picker";
 import { iconsets } from "./config";
+import { Icon } from "@svgr-iconkit/core"
+import BugIconData from "@svgr-iconkit/xnix/icons/regular/bug"
 
 
 export default function App() {
@@ -112,7 +114,7 @@ export default function App() {
                     onClick={() => onChangeIconset(index)}
                   >
                     {name}
-                    <XninIcon name="bug" />
+                    <Icon content={BugIconData} />
                   </ListGroupItem>
                 ))}
               </ListGroup>
