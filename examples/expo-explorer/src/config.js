@@ -104,5 +104,10 @@ export const iconsets = [
     packageName: "@svgr-iconkit/weather-icons",
     name: "Weather Icons",
     resources: () => import('./iconset/WeatherIcons'),
+  },
+  {
+    packageName: "@svgr-iconkit/grommet-icons",
+    name: "grommet-icons",
+    resources: () => import('./iconset/grommet-icons'),
   }
 ];

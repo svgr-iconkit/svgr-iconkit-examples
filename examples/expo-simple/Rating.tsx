@@ -1,11 +1,11 @@
 
-import { Icon, IconBaseProps, IconComponentProps, IconSVG } from "@svgr-iconkit/core";
+import { Icon, IconBaseProps, IconSVG } from "@svgr-iconkit/core";
 import StarOutlined from "@svgr-iconkit/fontawesome/icons/regular/star";
 import StarFilled from "@svgr-iconkit/fontawesome/icons/solid/star";
 import StarHalf from "@svgr-iconkit/fontawesome/icons/solid/star-half";
-import { ForwardedRef, forwardRef, memo, useCallback, useImperativeHandle, useMemo, useRef } from "react";
+import { ForwardedRef, forwardRef, memo, useCallback, useMemo, useRef } from "react";
 import { TouchableOpacityProps } from "react-native";
-import { GestureResponderEvent, View, ViewProps, StyleSheet, Touchable, TouchableOpacity } from "react-native";
+import { GestureResponderEvent, View, ViewProps, StyleSheet, TouchableOpacity } from "react-native";
 
 const DefaultSymbols = [StarOutlined, StarHalf, StarFilled];
 
@@ -32,7 +32,7 @@ const RatingStarItem = memo(forwardRef(function RatingStarItem({ state = 0, cont
   state: number,
   contents: IconSVG[]
 } & TouchableOpacityProps, ref: ForwardedRef<TouchableOpacity>) {
-  return <TouchableOpacity ref={ref} {...props}><Icon color="red" size={32} content={contents[state]} /></TouchableOpacity>;
+  return <TouchableOpacity ref={ref} {...props}><Icon color="blue" size={32} content={contents[state]} /></TouchableOpacity>;
 }))
 export const Rating = memo(forwardRef(function Rating({ minValue = 1, maxValue = 5, value = 0, itemProps, contents = DefaultSymbols, onItemClick, ...props }: RatingProps, ref: ForwardedRef<View>) {
   const cells = useMemo(() => {
@@ -49,10 +49,10 @@ export const Rating = memo(forwardRef(function Rating({ minValue = 1, maxValue =
     return data;
   }, [minValue, maxValue, value]);
 
-  const itemsRef = useRef<(typeof TouchableOpacity | null)[]>(new Array(maxValue - minValue).fill(null))
+  const itemsRef = useRef<(TouchableOpacity | null)[]>(new Array(maxValue - minValue).fill(null))
 
   const _onItemChange = useCallback((evt: any) => {
-    const index = itemsRef.current.findIndex( item => item == evt.currentTarget)
+    const index = itemsRef.current.findIndex(item => item == evt.currentTarget)
     onItemClick && onItemClick(index + 1, evt)
   }, [onItemClick]);
 

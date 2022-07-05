@@ -23,6 +23,7 @@ import {
   Slider,
   Heading,
   Link,
+  Badge,
   useToast,
   useMediaQuery,
 } from "native-base";
@@ -50,10 +51,13 @@ export default function SideMenu({
               source={require("../assets/images/logo-transparent.png")}
             />
           </Link>
-        </Center>
         <Heading textAlign="center" color="#333" mx="4" size="md">
           Icon Explorer for Expo
         </Heading>
+        <Badge rounded="full" colorScheme="info">
+          v0.3.0
+        </Badge>
+        </Center>
       </Box>
       <Box safeAreaBottom>
         <Heading margin="4" color="#777" size="sm">

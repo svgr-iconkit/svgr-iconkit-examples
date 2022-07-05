@@ -19,13 +19,13 @@ const IconContent = styled(Box)`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100px;
+  height: ${({size = 100}) => `${size + 0}px`};
 `;
 const IconWrapper = styled(Pressable)`
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 100px;
-  height: 130px;
+  width: ${({size = 100}) => `${size}px`};
+  height: ${({size = 100}) => `${size + 30}px`};
 `;
 const IconListWrapper = styled.View`
   position: relative;
@@ -37,7 +37,7 @@ const IconLabel = styled(Text)`
   align-items: center;
   justify-content: center;
   padding: 2px;
-  width: 100px;
+  width: 100%;
   height: 30px;
   font-size: 9px;
   text-align: center;
@@ -55,6 +55,7 @@ export default function IconList({
   isUsingStroke = true,
   onIconPress,
   numColumn = 3,
+  columnSize = 100,
   iconsetInfo,
 }) {
   const toast = useToast();
@@ -82,15 +83,16 @@ export default function IconList({
         <SimpleGrid
           alignItems="center"
           columns={numColumn}
-          spacingY={4}
-          spacingX={4}
+          spacingY={2}
+          spacingX={2}
         >
           {allIconNames.slice(0, maxCount).map((iconName) => (
             <IconWrapper
+            size={columnSize} 
               onPress={() => onIconPress && onIconPress(iconName)}
               key={iconName}
             >
-              <IconContent>
+              <IconContent size={columnSize} >
                 <Iconset
                   variant={variant}
                   name={iconName}

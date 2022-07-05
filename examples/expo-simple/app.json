@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "expo-simple",
-    "slug": "expo-simple",
+    "name": "@svgr-iconkit / Expo simple 1",
+    "slug": "svgr-iconkit-expo-simple-1",
+    "owner": "svgr-iconkit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,7 +22,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },

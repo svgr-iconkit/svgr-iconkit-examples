@@ -16,7 +16,7 @@ import IconsetInfoPanel from "./components/IconsetPanel";
 import Picker from "./components/Picker";
 import { iconsets } from "./config";
 import { Icon } from "@svgr-iconkit/core"
-import BugIconData from "@svgr-iconkit/xnix/icons/regular/bug"
+import BugIconData from "@svgr-iconkit/xnix/icons/regular/right-arrow"
 
 
 export default function App() {
@@ -112,9 +112,10 @@ export default function App() {
                     action
                     active={currentIconsetIndex === index}
                     onClick={() => onChangeIconset(index)}
+                    style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}
                   >
-                    {name}
-                    <Icon content={BugIconData} />
+                    <span>{name}</span>
+                    <Icon content={BugIconData} size="24" />
                   </ListGroupItem>
                 ))}
               </ListGroup>
@@ -125,7 +126,7 @@ export default function App() {
               <div className="topbar-body">
                 <div>
                   <ButtonGroup>
-                    {[16, 24, 32, 48].map((value) => (
+                    {[16, 24, 48,96].map((value) => (
                       <Button
                         onClick={() => setIconSize(value)}
                         key={`$size-${value}`}

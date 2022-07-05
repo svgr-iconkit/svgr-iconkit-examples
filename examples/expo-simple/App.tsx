@@ -4,6 +4,13 @@ import FontawesomeIcon from "@svgr-iconkit/fontawesome"
 import FeatherIcon from '@svgr-iconkit/feather';
 import { Rating } from './Rating';
 import { useState } from 'react';
+
+
+import CircleOutlined from "@svgr-iconkit/fontawesome/icons/regular/circle";
+import CircleHalf from "@svgr-iconkit/fontawesome/icons/regular/circle";
+import CircleFilled from "@svgr-iconkit/fontawesome/icons/solid/circle";
+const CircleSymbols = [CircleOutlined, CircleHalf, CircleFilled];
+
 export default function App() {
 
   const [value, setValue] = useState(2);

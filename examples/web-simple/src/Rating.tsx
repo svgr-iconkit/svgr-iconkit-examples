@@ -4,7 +4,6 @@ import StarOutlined from "@svgr-iconkit/fontawesome/icons/regular/star";
 import StarFilled from "@svgr-iconkit/fontawesome/icons/solid/star";
 import StarHalf from "@svgr-iconkit/fontawesome/icons/solid/star-half";
 import { useCallback } from "react";
-import { useRef } from "react";
 import { DetailedHTMLProps, ForwardedRef, forwardRef, HTMLAttributes, MouseEvent, memo, useMemo } from "react";
 
 const DefaultSymbols = [StarOutlined, StarHalf, StarFilled];

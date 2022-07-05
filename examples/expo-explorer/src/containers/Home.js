@@ -135,9 +135,11 @@ export default function Home() {
       title: `Package name ${iconsetInfo.packageName} copied in clipboard!`,
     });
   };
+  const columnSize = !isTablet ? 100 : 160;
+  const maxContentSize = !isTablet ? 90 : 150;
 
   const iconsColumns = Math.floor(
-    (windowSize.width - 20 - (isTablet ? 300 : 0)) / 120
+    (windowSize.width - 20 - (isTablet ? 300 : 0)) / (8 + columnSize)
   );
 
   const onShowMore = () => setMaxIconsShown(maxIconsShown + 60);
@@ -330,6 +332,7 @@ export default function Home() {
                 )}
                 <IconList
                   maxCount={maxIconsShown}
+                  columnSize={columnSize}
                   variant={currentVariant}
                   searching={isSearchMode}
                   size={iconSize}
@@ -384,7 +387,7 @@ export default function Home() {
                 <FormControl.Label>{`Size: ${iconSize}px`}</FormControl.Label>
                 <Slider
                   minValue={12}
-                  maxValue={80}
+                  maxValue={maxContentSize}
                   defaultValue={iconSize}
                   onChangeEnd={setIconSize}
                 >

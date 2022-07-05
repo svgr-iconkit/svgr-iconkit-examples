@@ -1,19 +1,15 @@
 
-import './App.css';
-import FontawesomeIcon, { iconNames, IconNames } from '@svgr-iconkit/fontawesome';
-import FeatherIcon from '@svgr-iconkit/feather';
-import StarIconData from "@svgr-iconkit/fontawesome/icons/regular/star"
-
-import CircleOutlined from "@svgr-iconkit/fontawesome/icons/regular/circle";
-import CircleHalf from "@svgr-iconkit/fontawesome/icons/regular/circle";
-import CircleFilled from "@svgr-iconkit/fontawesome/icons/solid/circle";
-
 import Icon from '@svgr-iconkit/core';
+import FeatherIcon from '@svgr-iconkit/feather';
+import FontawesomeIcon, { iconNames, IconNames } from '@svgr-iconkit/fontawesome';
+import { default as CircleHalf, default as CircleOutlined } from "@svgr-iconkit/fontawesome/icons/regular/circle";
+import StarIconData from "@svgr-iconkit/fontawesome/icons/regular/star";
+import CircleFilled from "@svgr-iconkit/fontawesome/icons/solid/circle";
+import { MouseEvent, useCallback, useRef, useState } from 'react';
+import './App.css';
 import { Rating } from './Rating';
-import { useRef } from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useCallback } from 'react';
+
+
 
 const CircleSymbols = [CircleOutlined, CircleHalf, CircleFilled];
 
@@ -24,22 +20,11 @@ function App() {
   const [currentIconName, setCurrentIconName] = useState<IconNames>("heart")
   const [value, setValue] = useState(0);
   const [valueCircle, setValueCircle] = useState(3);
-  useEffect(() => {
-    if (!ratingRef.current) {
-      return;
-    }
-    const onMouseUp = (evt: MouseEvent) => {
-      console.log(evt.target)
-
-    }
-    ratingRef.current.addEventListener("mouseup", onMouseUp);
-    return () => {
-      ratingRef.current?.removeEventListener("mouseup", onMouseUp);
-    }
-  }, [])
 
 
-  const onChangeIconName = useCallback(() => {
+
+  const onChangeIconName = useCallback((evt: MouseEvent) => {
+    evt.preventDefault();
     const newIndex = (Math.random() * iconNames.length) << 0;
     setCurrentIconName(iconNames[newIndex] as IconNames);
   }, []);
